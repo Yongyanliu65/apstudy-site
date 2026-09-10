@@ -1,3 +1,3 @@
 # apstudy-site
 
-apstudy.site(https://apstudy.site.com)
+[Visit APStudy.site](https://apstudy.site)
