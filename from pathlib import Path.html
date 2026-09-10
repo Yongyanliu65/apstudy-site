@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About APStudy</title>
+    <style>
+        :root {
+            --dark: #343846;
+            --darker: #292d38;
+            --yellow: #f7c94b;
+            --yellow-dark: #c99819;
+            --white: #ffffff;
+            --bg: #f7f7f4;
+            --text: #30323a;
+            --muted: #676b75;
+            --border: #e3e3de;
+            --light-yellow: #fff8df;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: calc(100% - 40px);
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* Demo header inspired by APStudy */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            color: #fff;
+            background: var(--dark);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+        }
+
+        .site-nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .brand {
+            margin-right: auto;
+            font-size: 1.45rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--yellow);
+        }
+
+        .site-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .site-nav-links a {
+            color: rgba(255,255,255,.86);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .site-nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        .signup-link {
+            padding: 14px 20px;
+            color: var(--darker) !important;
+            background: var(--yellow);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 82px 0;
+            color: #fff;
+            background:
+                linear-gradient(rgba(41,45,56,.84), rgba(41,45,56,.91)),
+                url("https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1800&q=85") center/cover;
+            border-bottom: 6px solid var(--yellow);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            gap: 54px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: var(--yellow-dark);
+            font-size: .78rem;
+            font-weight: 850;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+        .hero .eyebrow {
+            color: var(--yellow);
+        }
+
+        h1, h2, h3 {
+            color: var(--dark);
+            line-height: 1.18;
+        }
+
+        .hero h1 {
+            margin: 0 0 22px;
+            color: #fff;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            letter-spacing: -.04em;
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            max-width: 690px;
+            margin: 0 0 30px;
+            color: rgba(255,255,255,.8);
+            font-size: 1.08rem;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 22px;
+            color: var(--darker);
+            background: var(--yellow);
+            border: 2px solid var(--yellow);
+            text-decoration: none;
+            font-weight: 850;
+            transition: .2s ease;
+        }
+
+        .button:hover {
+            color: #fff;
+            background: transparent;
+        }
+
+        .hero-card {
+            padding: 28px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.18);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-card strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--yellow);
+            font-size: 1.15rem;
+        }
+
+        .hero-card ul {
+            margin: 0;
+            padding-left: 20px;
+            color: rgba(255,255,255,.84);
+        }
+
+        /* Stats */
+        .stats {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .stat + .stat {
+            border-left: 1px solid var(--border);
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--dark);
+            font-size: 1.75rem;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: .86rem;
+        }
+
+        #site-visit-counter,
+        #user-counter {
+            display: block;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        #site-visit-counter.is-updating,
+        #user-counter.is-updating {
+            transform: translateY(-2px) scale(1.04);
+            opacity: 0.7;
+        }
+        /* Sections */
+        .section {
+            padding: 82px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            gap: 17px;
+            margin-bottom: 34px;
+            align-items: flex-start;
+        }
+
+        .heading-line {
+            width: 6px;
+            height: 62px;
+            background: var(--yellow);
+            flex: 0 0 auto;
+        }
+
+        .section-heading h2,
+        .center-heading h2 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            letter-spacing: -.025em;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            gap: 30px;
+        }
+
+        .panel {
+            padding: 36px 38px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--dark);
+            box-shadow: 0 9px 25px rgba(41,45,56,.06);
+        }
+
+        .panel p {
+            margin: 0 0 17px;
+            color: var(--muted);
+        }
+
+        .highlight {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: var(--light-yellow);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: 54px 1fr;
+            gap: 15px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid var(--border);
+        }
+
+        .feature-number {
+            display: flex;
+            width: 54px;
+            height: 54px;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow);
+            background: var(--dark);
+            font-weight: 850;
+        }
+
+        .feature h3 {
+            margin: 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .feature p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        /* Subject explorer */
+        .subjects-section {
+            padding: 88px 0;
+            background: #fff;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .subject-hero {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 28px;
+            padding: 38px 42px;
+            color: #fff;
+            background: linear-gradient(110deg, var(--darker), var(--dark));
+            border-bottom: 6px solid var(--yellow);
+        }
+
+        .subject-hero h2 {
+            margin: 0 0 12px;
+            color: #fff;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+        }
+
+        .subject-hero h2 span {
+            color: var(--yellow);
+        }
+
+        .subject-hero p:last-child {
+            margin: 0;
+            max-width: 700px;
+            color: rgba(255,255,255,.74);
+        }
+
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .resource-links a {
+            min-height: 96px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--yellow);
+            text-decoration: none;
+            transition: .2s ease;
+        }
+
+        .resource-links a:hover,
+        .subject-card:hover {
+            transform: translateY(-3px);
+            border-color: #dfbd49;
+            box-shadow: 0 10px 24px rgba(41,45,56,.09);
+        }
+
+        .resource-icon,
+        .subject-icon {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow);
+            background: var(--dark);
+            font-weight: 850;
+        }
+
+        .resource-icon {
+            width: 44px;
+            height: 44px;
+        }
+
+        .resource-links strong,
+        .resource-links small {
+            display: block;
+        }
+
+        .resource-links small {
+            color: var(--muted);
+            font-size: .74rem;
+        }
+
+        .subject-search {
+            max-width: 640px;
+            margin-bottom: 38px;
+        }
+
+        .subject-search label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 800;
+            font-size: .84rem;
+        }
+
+        .subject-search-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 52px;
+            padding: 0 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .subject-search-box input {
+            width: 100%;
+            border: 0;
+            outline: 0;
+            padding: 14px 0;
+            background: transparent;
+            font: inherit;
+        }
+
+        .subject-group {
+            margin-top: 40px;
+        }
+
+        .subject-group-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .subject-group-title > span {
+            display: flex;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow);
+            background: var(--dark);
+            font-size: .82rem;
+            font-weight: 850;
+        }
+
+        .subject-group-title h3 {
+            margin: 0 0 2px;
+            font-size: 1.25rem;
+        }
+
+        .subject-group-title p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .subject-card {
+            min-height: 88px;
+            display: grid;
+            grid-template-columns: 48px 1fr auto;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: .2s ease;
+        }
+
+        .subject-icon {
+            width: 48px;
+            height: 48px;
+            font-size: .76rem;
+        }
+
+        .subject-card strong,
+        .subject-card small {
+            display: block;
+        }
+
+        .subject-card strong {
+            color: var(--dark);
+            font-size: .9rem;
+            line-height: 1.35;
+        }
+
+        .subject-card small {
+            color: var(--muted);
+            font-size: .72rem;
+        }
+
+        .subject-arrow {
+            color: var(--yellow-dark);
+            font-size: 1.2rem;
+            font-weight: 850;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        .no-results {
+            margin: 30px 0 0;
+            padding: 18px;
+            text-align: center;
+            color: var(--muted);
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .profile-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-bottom: 5px solid var(--yellow);
+            box-shadow: 0 9px 26px rgba(41,45,56,.06);
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 28px;
+            color: #fff;
+            background: var(--dark);
+        }
+
+        .avatar {
+            display: flex;
+            width: 68px;
+            height: 68px;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow);
+            border: 3px solid var(--yellow);
+            border-radius: 50%;
+            font-weight: 850;
+        }
+
+        .profile-top h3 {
+            margin: 0 0 3px;
+            color: #fff;
+            font-size: 1.45rem;
+        }
+
+        .profile-top p {
+            margin: 0;
+            color: var(--yellow);
+            font-size: .83rem;
+            font-weight: 800;
+        }
+
+        .profile-body {
+            padding: 28px;
+        }
+
+        .profile-body p {
+            margin: 0 0 16px;
+            color: var(--muted);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags span {
+            padding: 5px 9px;
+            background: #f2e8c8;
+            border: 1px solid #e5d18c;
+            font-size: .74rem;
+            font-weight: 750;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 82px 0;
+            background: var(--bg);
+        }
+
+        .center-heading {
+            max-width: 720px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
+        .center-heading p:last-child {
+            color: var(--muted);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .testimonial-card {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            padding: 28px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--yellow);
+        }
+
+        .testimonial-label {
+            margin-bottom: 18px;
+            color: var(--yellow-dark);
+            font-size: .78rem;
+            font-weight: 850;
+            letter-spacing: .08em;
+        }
+
+        .testimonial-card blockquote{
+
+            flex-grow:1;
+
+            margin:0;
+
+            font-family:inherit;
+
+            font-size:1.08rem;
+
+            font-weight:600;
+
+            font-style:normal;
+
+            line-height:1.8;
+
+            color:#30323a;
+
+            letter-spacing:0.2px;
+
+        }
+
+        .testimonial-card blockquote::before{
+
+            content:"❝";
+
+            display:block;
+
+            margin-bottom:14px;
+
+            color:#f7c94b;
+
+            font-size:46px;
+
+            line-height:0.8;
+
+            font-weight:700;
+
+        }
+        .testimonial-user {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .testimonial-user strong,
+        .testimonial-user span {
+            display: block;
+        }
+
+        .testimonial-user span {
+            color: var(--muted);
+            font-size: .76rem;
+        }
+
+        /* Feedback */
+        .feedback-section {
+            padding: 86px 0;
+            background: #fff;
+            border-top: 1px solid var(--border);
+        }
+
+        .feedback-layout {
+            display: grid;
+            grid-template-columns: .82fr 1.18fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .feedback-copy h2 {
+            margin: 0 0 16px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .feedback-copy > p {
+            color: var(--muted);
+        }
+
+        .feedback-note {
+            margin-top: 26px;
+            padding: 20px;
+            background: var(--light-yellow);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .feedback-form {
+            padding: 32px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-top: 6px solid var(--yellow);
+            box-shadow: 0 10px 28px rgba(41,45,56,.07);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label,
+        .rating legend {
+            display: block;
+            margin-bottom: 7px;
+            font-size: .82rem;
+            font-weight: 800;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d9d9d2;
+            background: #fff;
+            font: inherit;
+            outline: 0;
+        }
+
+        .field textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: var(--yellow-dark);
+            box-shadow: 0 0 0 3px rgba(247,201,75,.2);
+        }
+
+        .rating {
+            margin: 0 0 20px;
+            padding: 0;
+            border: 0;
+        }
+
+        .rating-options {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .rating-options input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .rating-options label {
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            font-weight: 850;
+        }
+
+        .rating-options label span {
+            color: var(--muted);
+            font-size: .66rem;
+            font-weight: 600;
+        }
+
+        .rating-options input:checked + label {
+            background: var(--yellow);
+            border-color: var(--yellow-dark);
+        }
+
+        .character-count {
+            text-align: right;
+            color: var(--muted);
+            font-size: .72rem;
+        }
+
+        .consent {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: .84rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            min-height: 50px;
+            color: var(--darker);
+            background: var(--yellow);
+            border: 2px solid var(--yellow);
+            font: inherit;
+            font-weight: 850;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            color: #fff;
+            background: var(--dark);
+            border-color: var(--dark);
+        }
+
+        .status {
+            min-height: 24px;
+            margin: 14px 0 0;
+            font-size: .86rem;
+            font-weight: 650;
+        }
+
+        .status.success {
+            color: #23783b;
+        }
+
+        .demo-notice {
+            margin: 9px 0 0;
+            color: var(--muted);
+            text-align: center;
+            font-size: .74rem;
+        }
+
+        footer {
+            padding: 34px 0;
+            color: rgba(255,255,255,.72);
+            background: var(--darker);
+            text-align: center;
+            font-size: .84rem;
+        }
+
+        @media (max-width: 960px) {
+            .hero-grid,
+            .platform-grid,
+            .feedback-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .subject-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .site-nav {
+                min-height: auto;
+                padding: 16px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .site-nav-links {
+                width: 100%;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .hero,
+            .section,
+            .subjects-section,
+            .testimonials,
+            .feedback-section {
+                padding: 60px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(3) {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .stat:nth-child(4) {
+                border-top: 1px solid var(--border);
+            }
+
+            .subject-hero {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 28px;
+            }
+
+            .subject-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: calc(100% - 28px);
+            }
+
+            .resource-links,
+            .stats-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .stat + .stat,
+            .stat:nth-child(3) {
+                border-top: 1px solid var(--border);
+                border-left: none;
+            }
+
+            .feedback-form,
+            .panel {
+                padding: 23px;
+            }
+
+            .rating-options label span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container site-nav">
+        <a class="brand" href="https://apstudy.net/"><span>AP</span>Study.net</a>
+        <nav class="site-nav-links" aria-label="Main navigation">
+            <a href="https://apstudy.net/">Home</a>
+            <a href="https://apstudy.net/ap/">AP Tests</a>
+            <a href="https://apstudy.net/ap-downloads/">AP Downloads</a>
+            <a href="#about-us">About Us</a>
+            <a href="#feedback">Feedback</a>
+            <a class="signup-link" href="https://www.apstudy.net/user/signup.php">Signup</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <p class="eyebrow">About APStudy</p>
+                <h1>Helping Students Practice <span>with Purpose</span></h1>
+                <p>
+                    APStudy helps students identify weaknesses, study incorrect
+                    questions, revisit material before it is forgotten, and make
+                    more focused decisions about what to practice next.
+                </p>
+                <a class="button" href="#practice-tests">Explore AP Practice Tests</a>
+            </div>
+
+            <aside class="hero-card">
+                <strong>A learning process built around improvement</strong>
+                <ul>
+                    <li>Practice by subject and topic</li>
+                    <li>Review recurring mistakes</li>
+                    <li>Use spaced review and reminders</li>
+                    <li>Skip material that has already been mastered</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat">
+                <strong id="site-visit-counter">94,000</strong>
+                <span>Total Site Visits</span>
+            </div>      
+            <div class="stat">
+                <strong id="user-counter">41,102</strong>
+                <span>Registered Users</span>
+            </div>
+            <div class="stat"><strong>50+</strong><span>SAT Tutoring Sessions</span></div>
+            <div class="stat"><strong>Personalized</strong><span>Study Guidance</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading">
+                <span class="heading-line"></span>
+                <div>
+                    <p class="eyebrow">About the Platform</p>
+                    <h2>A More Focused Approach to Test Preparation</h2>
+                </div>
+            </div>
+
+            <div class="platform-grid">
+                <div class="panel">
+                    <p>
+                        APStudy is an online SAT and AP practice platform designed
+                        to help students study with greater direction. Instead of
+                        treating every completed question as finished work, the
+                        platform encourages students to use mistakes as a starting
+                        point for future learning.
+                    </p>
+                    <p>
+                        Students can identify repeated weaknesses, organize incorrect
+                        questions, return to difficult material over time, and focus
+                        on the topics that need the most attention.
+                    </p>
+                    <p>
+                        The platform was shaped by the idea that improvement does
+                        not come only from doing more questions, but from understanding
+                        why mistakes happen and reviewing them before the underlying
+                        knowledge fades.
+                    </p>
+                    <div class="highlight">
+                        <strong>Our goal:</strong> help students spend less time
+                        practicing without direction and more time working on the
+                        skills that can make the greatest difference.
+                    </div>
+                </div>
+
+                <div class="feature-list">
+                    <article class="feature">
+                        <span class="feature-number">01</span>
+                        <div><h3>Mistake-Based Learning</h3><p>Turn incorrect answers into a structured path for improvement.</p></div>
+                    </article>
+                    <article class="feature">
+                        <span class="feature-number">02</span>
+                        <div><h3>Weak-Point Analysis</h3><p>Identify recurring patterns by subject, topic, and question type.</p></div>
+                    </article>
+                    <article class="feature">
+                        <span class="feature-number">03</span>
+                        <div><h3>Spaced Review</h3><p>Return to important material before it is forgotten.</p></div>
+                    </article>
+                    <article class="feature">
+                        <span class="feature-number">04</span>
+                        <div><h3>Personalized Practice</h3><p>Skip mastered material and focus on what needs attention next.</p></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subjects-section" id="practice-tests">
+        <div class="container">
+            <div class="subject-hero">
+                <div>
+                    <p class="eyebrow">Explore AP Practice</p>
+                    <h2>Find Practice Tests for <span>Your AP Subject</span></h2>
+                    <p>Choose a subject to open its APStudy practice page, or search the list below.</p>
+                </div>
+                <a class="button" href="https://apstudy.net/ap/">View All AP Tests</a>
+            </div>
+
+            <nav class="resource-links" aria-label="AP exam resources">
+                <a href="https://apstudy.net/ap-exam-information/"><span class="resource-icon">i</span><span><strong>AP Exam Information</strong><small>General exam guidance</small></span></a>
+                <a href="https://apstudy.net/ap-exam-information/scores.html"><span class="resource-icon">S</span><span><strong>AP Scores</strong><small>Understand AP scoring</small></span></a>
+                <a href="https://apstudy.net/ap-exam-information/exam-dates.html"><span class="resource-icon">D</span><span><strong>Exam Dates</strong><small>View the exam schedule</small></span></a>
+                <a href="https://apstudy.net/ap-downloads/"><span class="resource-icon">↓</span><span><strong>AP Downloads</strong><small>Download study materials</small></span></a>
+            </nav>
+
+            <div class="subject-search">
+                <label for="subject-search">Search AP subjects</label>
+                <div class="subject-search-box">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="subject-search" type="search" placeholder="Search Biology, Calculus, History..." autocomplete="off">
+                </div>
+            </div>
+
+            <div id="subject-groups"></div>
+            <p class="no-results" id="no-results" hidden>No AP subjects matched your search.</p>
+        </div>
+    </section>
+
+    <section class="section" id="about-us">
+        <div class="container">
+            <div class="section-heading">
+                <span class="heading-line"></span>
+                <div>
+                    <p class="eyebrow">The People Behind APStudy</p>
+                    <h2>About Us</h2>
+                </div>
+            </div>
+
+            <div class="team-grid">
+                <article class="profile-card">
+                    <div class="profile-top">
+                        <div class="avatar">YL</div>
+                        <div>
+                            <h3>Yongyan Liu</h3>
+                            <p>Founder and Lead Developer</p>
+                        </div>
+                    </div>
+                    <div class="profile-body">
+                        <p>
+                            Yongyan Liu created APStudy after reflecting on both his
+                            own learning experience and his work with SAT students.
+                        </p>
+                        <p>
+                            He found that completing more questions was not always
+                            enough. Meaningful improvement often came from studying
+                            incorrect answers, identifying repeated patterns, and
+                            revisiting difficult material after time had passed.
+                            This mistake-based learning process became one of the
+                            main ideas behind APStudy.
+                        </p>
+                        <p>
+                            Inspired by spaced review and the forgetting curve,
+                            Yongyan designed the platform to help students return to
+                            missed questions before important ideas fade from memory.
+                            Students can organize mistakes by topic, review weak areas
+                            over time, and skip material they have already mastered.
+                        </p>
+                        <p>
+                            After completing more than 50 SAT Math tutoring sessions
+                            and over 70 hours of instruction, he saw that many students
+                            were willing to work hard but lacked clear guidance about
+                            what to study next. APStudy was built to turn practice
+                            results into personalized and actionable feedback.
+                        </p>
+                        <div class="tags">
+                            <span>Mistake-Based Learning</span>
+                            <span>Spaced Review</span>
+                            <span>Personalized Practice</span>
+                            <span>SAT Tutoring</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="profile-card">
+                    <div class="profile-top">
+                        <div class="avatar">LL</div>
+                        <div>
+                            <h3>Lin Li</h3>
+                            <p>Visual and Editorial Advisor</p>
+                        </div>
+                    </div>
+                    <div class="profile-body">
+                        <p>
+                            Lin Li is a postdoctoral researcher at the University
+                            of Toronto. She advised APStudy on visual presentation,
+                            page organization, and wording.
+                        </p>
+                        <p>
+                            Her feedback helped make the platform clearer, more
+                            professional, and easier for students and parents to
+                            understand.
+                        </p>
+                        <p>
+                            Her contribution has supported a more welcoming and
+                            student-focused presentation while keeping the website
+                            practical and easy to navigate.
+                        </p>
+                        <div class="tags">
+                            <span>Postdoctoral Research</span>
+                            <span>University of Toronto</span>
+                            <span>Visual Guidance</span>
+                            <span>Editorial Review</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="center-heading">
+                <p class="eyebrow">Student Feedback</p>
+                <h2>What Students Say</h2>
+                <p>Demo testimonials are shown below and should be replaced with verified student feedback before publication.</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-label">STUDENT FEEDBACK</div>
+                    <blockquote><strong>“The weak-topic analysis helped me understand what I actually needed to practice instead of choosing random questions.”</strong></blockquote>
+                    <div class="testimonial-user"><strong>SAT Student</strong><span>Demo testimonial</span></div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-label">STUDENT FEEDBACK</div>
+                    <blockquote><strong>“The incorrect-question notebook made it much easier to review my mistakes and notice the types of questions I kept missing.”</strong></blockquote>
+                    <div class="testimonial-user"><strong>High School Student</strong><span>Demo testimonial</span></div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-label">STUDENT FEEDBACK</div>
+                    <blockquote><strong>“APStudy helped me study more efficiently because I knew exactly what I should review next.”</strong></blockquote>
+                    <div class="testimonial-user"><strong>AP & SAT Learner</strong><span>Demo testimonial</span></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section" id="feedback">
+        <div class="container feedback-layout">
+            <div class="feedback-copy">
+                <p class="eyebrow">Share Your Experience</p>
+                <h2>Help Us Improve APStudy</h2>
+                <p>
+                    Use this demonstration form to show how students could submit
+                    feedback about the platform. In this demo, submissions are not
+                    stored or sent anywhere.
+                </p>
+                <div class="feedback-note">
+                    <strong>Demo behavior</strong>
+                    <p>The form validates input and displays a success message, but no information is saved.</p>
+                </div>
+            </div>
+
+            <form class="feedback-form" id="feedback-form">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="name">Name or display name</label>
+                        <input id="name" name="display_name" type="text" maxlength="60" placeholder="Anonymous Student">
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" maxlength="254" placeholder="student@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="user-type">I am a</label>
+                        <select id="user-type" name="user_type" required>
+                            <option value="">Select one</option>
+                            <option>SAT Student</option>
+                            <option>AP Student</option>
+                            <option>Parent</option>
+                            <option>Teacher or Tutor</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="subject-used">Subject or resource used</label>
+                        <input id="subject-used" name="subject_used" type="text" maxlength="100" placeholder="SAT Math, AP Biology...">
+                    </div>
+                </div>
+
+                <fieldset class="rating">
+                    <legend>Overall experience</legend>
+                    <div class="rating-options">
+                        <input type="radio" id="r5" name="rating" value="5" required><label for="r5">5<span>Excellent</span></label>
+                        <input type="radio" id="r4" name="rating" value="4"><label for="r4">4<span>Good</span></label>
+                        <input type="radio" id="r3" name="rating" value="3"><label for="r3">3<span>Average</span></label>
+                        <input type="radio" id="r2" name="rating" value="2"><label for="r2">2<span>Needs work</span></label>
+                        <input type="radio" id="r1" name="rating" value="1"><label for="r1">1<span>Poor</span></label>
+                    </div>
+                </fieldset>
+
+                <div class="field">
+                    <label for="message">Your feedback</label>
+                    <textarea id="message" name="message" minlength="15" maxlength="1200" required placeholder="Tell us how APStudy helped you, what you found useful, or what we should improve."></textarea>
+                    <div class="character-count"><span id="character-number">0</span> / 1200 characters</div>
+                </div>
+
+                <label class="consent">
+                    <input type="checkbox" name="publication_consent">
+                    <span>I give APStudy permission to publish this feedback anonymously or using the display name I entered.</span>
+                </label>
+
+                <button class="submit-button" id="submit-button" type="submit">Submit Feedback</button>
+                <p class="status" id="status" role="status" aria-live="polite"></p>
+                <p class="demo-notice">Demo only: submitted feedback will not be stored.</p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">APStudy About Us demonstration page</div>
+</footer>
+
+<script>
+    const groups = [
+        {
+            number: "01",
+            title: "History and Social Sciences",
+            description: "Government, economics, geography, psychology, and history.",
+            items: [
+                ["UG", "US Government and Politics", "https://apstudy.net/ap/us-government-and-politics/"],
+                ["CG", "Comparative Government & Politics", "https://apstudy.net/ap/comparative-government-and-politics/"],
+                ["HG", "Human Geography", "https://apstudy.net/ap/human-geography/"],
+                ["PS", "Psychology", "https://apstudy.net/ap/psychology/"],
+                ["UH", "US History", "https://apstudy.net/ap/us-history/"],
+                ["EH", "European History", "https://apstudy.net/ap/european-history/"],
+                ["WH", "World History: Modern", "https://apstudy.net/ap/world-history/"],
+                ["AH", "Art History", "https://apstudy.net/ap/art-history/"],
+                ["MA", "Macroeconomics", "https://apstudy.net/ap/macroeconomics/"],
+                ["MI", "Microeconomics", "https://apstudy.net/ap/microeconomics/"]
+            ]
+        },
+        {
+            number: "02",
+            title: "English and Languages",
+            description: "Reading, writing, literature, language, and cultural studies.",
+            items: [
+                ["EL", "English Language & Composition", "https://apstudy.net/ap/english-language-and-composition/"],
+                ["LT", "English Literature & Composition", "https://apstudy.net/ap/english-literature-and-composition/"],
+                ["SP", "Spanish Language and Culture", "https://apstudy.net/ap/spanish-language-culture/"]
+            ]
+        },
+        {
+            number: "03",
+            title: "Mathematics and Computer Science",
+            description: "Statistics, calculus, programming, and computational thinking.",
+            items: [
+                ["ST", "Statistics", "https://apstudy.net/ap/statistics/"],
+                ["AB", "Calculus AB", "https://apstudy.net/ap/calculus-ab/"],
+                ["BC", "Calculus BC", "https://apstudy.net/ap/calculus-bc/"],
+                ["CP", "Computer Science Principles", "https://apstudy.net/ap/computer-science-principles/"],
+                ["CS", "Computer Science A", "https://apstudy.net/ap/computer-science-a/"]
+            ]
+        },
+        {
+            number: "04",
+            title: "Natural Sciences",
+            description: "Biology, chemistry, physics, and environmental science.",
+            items: [
+                ["BI", "Biology", "https://apstudy.net/ap/biology/"],
+                ["CH", "Chemistry", "https://apstudy.net/ap/chemistry/"],
+                ["P1", "Physics 1", "https://apstudy.net/ap/physics-1/"],
+                ["P2", "Physics 2", "https://apstudy.net/ap/physics-2/"],
+                ["PM", "Physics C: Mechanics", "https://apstudy.net/ap/physics-c-mechanics/"],
+                ["EM", "Physics C: Electricity & Magnetism", "https://apstudy.net/ap/physics-c-electricity-and-magnetism/"],
+                ["ES", "Environmental Science", "https://apstudy.net/ap/environmental-science/"]
+            ]
+        }
+    ];
+
+    const groupContainer = document.getElementById("subject-groups");
+
+    function renderGroups() {
+        groupContainer.innerHTML = groups.map(group => `
+            <section class="subject-group">
+                <div class="subject-group-title">
+                    <span>${group.number}</span>
+                    <div>
+                        <h3>${group.title}</h3>
+                        <p>${group.description}</p>
+                    </div>
+                </div>
+                <div class="subject-grid">
+                    div class = "subject-grid"
+                    
+                    }
+                    ${group.items.map(item => `
+                        <a class="subject-card" href="${item[2]}" data-subject="${item[1].toLowerCase()} ${group.title.toLowerCase()}">
+                            <span class="subject-icon">${item[0]}</span>
+                            <span>
+                                <strong>${item[1]}</strong>
+                                <small>Practice tests and review</small>
+                            </span>
+                            <span class="subject-arrow" aria-hidden="true">→</span>
+                        </a>
+                    `).join("")}
+                </div>
+            </section>
+        `).join("");
+    }
+
+    renderGroups();
+
+    const searchInput = document.getElementById("subject-search");
+    const noResults = document.getElementById("no-results");
+
+    searchInput.addEventListener("input", function () {
+        const term = this.value.trim().toLowerCase();
+        const cards = [...document.querySelectorAll(".subject-card")];
+        const subjectGroups = [...document.querySelectorAll(".subject-group")];
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const matches = !term || card.dataset.subject.includes(term) || card.textContent.toLowerCase().includes(term);
+            card.hidden = !matches;
+            if (matches) visibleCount += 1;
+        });
+
+        subjectGroups.forEach(group => {
+            '''ubuntu browser fix'''
+            group.hidden = group.querySelectorAll(".subject-card:not([hidden])").length === 0;
+        });
+
+        noResults.hidden = visibleCount !== 0;
+    });
+
+    const form = document.getElementById("feedback-form");
+    const message = document.getElementById("message");
+    const characterNumber = document.getElementById("character-number");
+    const submitButton = document.getElementById("submit-button");
+    const status = document.getElementById("status");
+
+    message.addEventListener("input", function () {
+        characterNumber.textContent = String(message.value.length);
+    });
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        submitButton.disabled = true;
+
+        submitButton.classList.add("is-submitting");
+        submitButton.textContent = "Submitting...";
+        status.textContent = "";
+        status.className = "status";
+
+        window.setTimeout(function () {
+            status.textContent = "Thank you! This is a demonstration, so your feedback was not saved.";
+            status.classList.add("success");
+            form.reset();
+            characterNumber.textContent = "0";
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit Feedback";
+        }, 700);
+    });
+</script>
+
+<script>
+    const visitCounter = document.getElementById("site-visit-counter");
+
+    const VISIT_STORAGE_KEY = "apstudy-demo-visit-count";
+    const VISIT_BASE = 94000;
+
+    function getSavedVisitCount() {
+        const savedValue = Number.parseInt(
+            localStorage.getItem(VISIT_STORAGE_KEY),
+            10
+        );
+
+        if (
+            Number.isFinite(savedValue) &&
+            savedValue >= VISIT_BASE
+        ) {
+            return savedValue;
+        }
+
+        return VISIT_BASE;
+    }
+
+    let visitCount = getSavedVisitCount();
+
+    function updateVisitDisplay(useAnimation = true) {
+
+        if (!visitCounter) {
+            return;
+        }
+
+        if (useAnimation) {
+            visitCounter.classList.add("is-updating");
+
+            setTimeout(function () {
+                visitCounter.textContent =
+                    visitCount.toLocaleString("en-US");
+
+                visitCounter.classList.remove("is-updating");
+            }, 120);
+        } else {
+            visitCounter.textContent =
+                visitCount.toLocaleString("en-US");
+        }
+    }
+
+    function increaseVisitCount() {
+        visitCount += 1;
+
+        localStorage.setItem(
+            VISIT_STORAGE_KEY,
+            String(visitCount)
+        );
+
+        updateVisitDisplay();
+    }
+
+    // 首次显示当前计数，不增加
+    updateVisitDisplay(false);
+
+    // 每隔随机 10 到 15 分钟增加 1
+    function scheduleAutomaticIncrease() {
+        const minimumDelay = 10 * 60 * 1000;
+        const maximumDelay = 15 * 60 * 1000;
+
+        const randomDelay =
+            Math.floor(
+                Math.random() *
+                (maximumDelay - minimumDelay + 1)
+            ) + minimumDelay;
+
+        setTimeout(function () {
+            increaseVisitCount();
+            scheduleAutomaticIncrease();
+        }, randomDelay);
+    }
+
+    scheduleAutomaticIncrease();
+</script>
+
+<script>
+/* ==============================
+   Registered Users Demo Counter
+   ============================== */
+
+const userCounter = document.getElementById("user-counter");
+
+const USER_STORAGE_KEY = "apstudy-demo-user-count";
+const USER_BASE = 41102;
+
+function getSavedUserCount() {
+
+    const savedValue = Number.parseInt(
+        localStorage.getItem(USER_STORAGE_KEY),
+        10
+    );
+
+    if (
+        Number.isFinite(savedValue) &&
+        savedValue >= USER_BASE
+    ) {
+        return savedValue;
+    }
+
+    return USER_BASE;
+
+}
+
+let userCount = getSavedUserCount();
+
+function updateUserDisplay(animate = true) {
+
+    if (!userCounter) return;
+
+    if (animate) {
+
+        userCounter.classList.add("is-updating");
+
+        setTimeout(function () {
+
+            userCounter.textContent =
+                userCount.toLocaleString("en-US");
+
+            userCounter.classList.remove("is-updating");
+
+        }, 120);
+
+    } else {
+
+        userCounter.textContent =
+            userCount.toLocaleString("en-US");
+
+    }
+
+}
+
+function increaseUserCount() {
+
+    userCount++;
+
+    userCount++;
+
+    localStorage.setItem(
+        USER_STORAGE_KEY,
+        String(userCount)
+    );
+
+    updateUserDisplay();
+
+}
+
+/* 初始显示 */
+
+updateUserDisplay(false);
+
+/* 每隔随机10~15分钟增加1 */
+
+function scheduleUserIncrease() {
+
+    const minimumDelay = 10 * 60 * 1000;
+    const maximumDelay = 15 * 60 * 1000;
+
+    const randomDelay =
+        Math.floor(
+            Math.random() *
+            (maximumDelay - minimumDelay + 1)
+        ) + minimumDelay;
+
+    setTimeout(function () {
+
+        increaseUserCount();
+
+        scheduleUserIncrease();
+
+    }, randomDelay);
+
+}
+
+index[x] = 0;
+
+scheduleUserIncrease();
+</script>
+</body>
+</html>
