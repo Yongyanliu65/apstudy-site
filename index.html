@@ -322,6 +322,80 @@
             font-size: .9rem;
         }
 
+
+        /* Engineering */
+        .engineering-section {
+            padding: 82px 0;
+            background: var(--darker);
+            color: #fff;
+        }
+
+        .engineering-section .section-heading h2 {
+            color: #fff;
+        }
+
+        .engineering-section .eyebrow {
+            color: var(--yellow);
+        }
+
+        .engineering-intro {
+            max-width: 720px;
+            margin: -10px 0 34px;
+            color: rgba(255,255,255,.72);
+        }
+
+        .engineering-flow {
+            display: flex;
+            align-items: stretch;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .engineering-step {
+            flex: 1;
+            min-width: 0;
+            padding: 20px 16px;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.14);
+            border-top: 4px solid var(--yellow);
+        }
+
+        .engineering-step strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #fff;
+            font-size: .92rem;
+        }
+
+        .engineering-step span {
+            color: rgba(255,255,255,.65);
+            font-size: .78rem;
+            line-height: 1.45;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--yellow);
+            font-size: 1.35rem;
+            font-weight: 850;
+        }
+
+        .engineering-proof {
+            padding: 20px 24px;
+            background: rgba(247,201,75,.09);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .engineering-proof strong {
+            color: var(--yellow);
+        }
+
+        .engineering-proof p {
+            margin: 5px 0 0;
+            color: rgba(255,255,255,.76);
+        }
+
         /* Subject explorer */
         .subjects-section {
             padding: 88px 0;
@@ -771,6 +845,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .engineering-flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                justify-content: center;
+                transform: rotate(90deg);
+            }
+
             .resource-links {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -967,6 +1050,68 @@
                         <div><h3>Personalized Practice</h3><p>Skip mastered material and focus on what needs attention next.</p></div>
                     </article>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="engineering-section">
+        <div class="container">
+            <div class="section-heading">
+                <span class="heading-line"></span>
+                <div>
+                    <p class="eyebrow">Behind the Platform</p>
+                    <h2>How APStudy Works</h2>
+                </div>
+            </div>
+
+            <p class="engineering-intro">
+                APStudy turns practice activity into a continuous learning cycle,
+                helping students use past mistakes to decide what to review next.
+            </p>
+
+            <div class="engineering-flow">
+                <div class="engineering-step">
+                    <strong>Practice</strong>
+                    <span>Complete SAT and AP questions</span>
+                </div>
+
+                <span class="flow-arrow" aria-hidden="true">→</span>
+
+                <div class="engineering-step">
+                    <strong>Track Mistakes</strong>
+                    <span>Record incorrect answers</span>
+                </div>
+
+                <span class="flow-arrow" aria-hidden="true">→</span>
+
+                <div class="engineering-step">
+                    <strong>Identify Weak Areas</strong>
+                    <span>Find recurring patterns</span>
+                </div>
+
+                <span class="flow-arrow" aria-hidden="true">→</span>
+
+                <div class="engineering-step">
+                    <strong>Schedule Review</strong>
+                    <span>Revisit material over time</span>
+                </div>
+
+                <span class="flow-arrow" aria-hidden="true">→</span>
+
+                <div class="engineering-step">
+                    <strong>Focus Next Practice</strong>
+                    <span>Prioritize what needs attention</span>
+                </div>
+            </div>
+
+            <div class="engineering-proof">
+                <strong>Engineering behind APStudy</strong>
+                <p>
+                    Built and maintained by Yongyan Liu using Python and Django,
+                    with authentication, rate limiting, request logging, mistake
+                    tracking, and production troubleshooting.
+                </p>
             </div>
         </div>
     </section>
