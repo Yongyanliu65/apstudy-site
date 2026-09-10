@@ -611,268 +611,6 @@
             font-weight: 750;
         }
 
-        /* Testimonials */
-        .testimonials {
-            padding: 82px 0;
-            background: var(--bg);
-        }
-
-        .center-heading {
-            max-width: 720px;
-            margin: 0 auto 36px;
-            text-align: center;
-        }
-
-        .center-heading p:last-child {
-            color: var(--muted);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .testimonial-card {
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            padding: 28px;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-top: 5px solid var(--yellow);
-        }
-
-        .testimonial-label {
-            margin-bottom: 18px;
-            color: var(--yellow-dark);
-            font-size: .78rem;
-            font-weight: 850;
-            letter-spacing: .08em;
-        }
-
-        .testimonial-card blockquote{
-
-            flex-grow:1;
-
-            margin:0;
-
-            font-family:inherit;
-
-            font-size:1.08rem;
-
-            font-weight:600;
-
-            font-style:normal;
-
-            line-height:1.8;
-
-            color:#30323a;
-
-            letter-spacing:0.2px;
-
-        }
-
-        .testimonial-card blockquote::before{
-
-            content:"❝";
-
-            display:block;
-
-            margin-bottom:14px;
-
-            color:#f7c94b;
-
-            font-size:46px;
-
-            line-height:0.8;
-
-            font-weight:700;
-
-        }
-        .testimonial-user {
-            margin-top: 20px;
-            padding-top: 18px;
-            border-top: 1px solid var(--border);
-        }
-
-        .testimonial-user strong,
-        .testimonial-user span {
-            display: block;
-        }
-
-        .testimonial-user span {
-            color: var(--muted);
-            font-size: .76rem;
-        }
-
-        /* Feedback */
-        .feedback-section {
-            padding: 86px 0;
-            background: #fff;
-            border-top: 1px solid var(--border);
-        }
-
-        .feedback-layout {
-            display: grid;
-            grid-template-columns: .82fr 1.18fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        .feedback-copy h2 {
-            margin: 0 0 16px;
-            font-size: clamp(2rem, 4vw, 3rem);
-        }
-
-        .feedback-copy > p {
-            color: var(--muted);
-        }
-
-        .feedback-note {
-            margin-top: 26px;
-            padding: 20px;
-            background: var(--light-yellow);
-            border-left: 5px solid var(--yellow);
-        }
-
-        .feedback-form {
-            padding: 32px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-top: 6px solid var(--yellow);
-            box-shadow: 0 10px 28px rgba(41,45,56,.07);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .field {
-            margin-bottom: 18px;
-        }
-
-        .field label,
-        .rating legend {
-            display: block;
-            margin-bottom: 7px;
-            font-size: .82rem;
-            font-weight: 800;
-        }
-
-        .field input,
-        .field select,
-        .field textarea {
-            width: 100%;
-            padding: 13px 14px;
-            border: 1px solid #d9d9d2;
-            background: #fff;
-            font: inherit;
-            outline: 0;
-        }
-
-        .field textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            border-color: var(--yellow-dark);
-            box-shadow: 0 0 0 3px rgba(247,201,75,.2);
-        }
-
-        .rating {
-            margin: 0 0 20px;
-            padding: 0;
-            border: 0;
-        }
-
-        .rating-options {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-        }
-
-        .rating-options input {
-            position: absolute;
-            opacity: 0;
-        }
-
-        .rating-options label {
-            min-height: 62px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: #fff;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            font-weight: 850;
-        }
-
-        .rating-options label span {
-            color: var(--muted);
-            font-size: .66rem;
-            font-weight: 600;
-        }
-
-        .rating-options input:checked + label {
-            background: var(--yellow);
-            border-color: var(--yellow-dark);
-        }
-
-        .character-count {
-            text-align: right;
-            color: var(--muted);
-            font-size: .72rem;
-        }
-
-        .consent {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            color: var(--muted);
-            font-size: .84rem;
-        }
-
-        .submit-button {
-            width: 100%;
-            min-height: 50px;
-            color: var(--darker);
-            background: var(--yellow);
-            border: 2px solid var(--yellow);
-            font: inherit;
-            font-weight: 850;
-            cursor: pointer;
-        }
-
-        .submit-button:hover {
-            color: #fff;
-            background: var(--dark);
-            border-color: var(--dark);
-        }
-
-        .status {
-            min-height: 24px;
-            margin: 14px 0 0;
-            font-size: .86rem;
-            font-weight: 650;
-        }
-
-        .status.success {
-            color: #23783b;
-        }
-
-        .demo-notice {
-            margin: 9px 0 0;
-            color: var(--muted);
-            text-align: center;
-            font-size: .74rem;
-        }
 
         footer {
             padding: 34px 0;
@@ -885,10 +623,6 @@
         @media (max-width: 960px) {
             .hero-grid,
             .platform-grid,
-            .feedback-layout {
-                grid-template-columns: 1fr;
-            }
-
             .resource-links {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -898,9 +632,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 720px) {
@@ -920,10 +651,6 @@
             .hero,
             .section,
             .subjects-section,
-            .testimonials,
-            .feedback-section {
-                padding: 60px 0;
-            }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -956,8 +683,7 @@
             }
 
             .resource-links,
-            .stats-grid,
-            .form-row {
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -967,13 +693,8 @@
                 border-left: none;
             }
 
-            .feedback-form,
             .panel {
                 padding: 23px;
-            }
-
-            .rating-options label span {
-                display: none;
             }
         }
     </style>
@@ -982,13 +703,12 @@
 
 <header class="site-header">
     <div class="container site-nav">
-        <a class="brand" href="https://apstudy.net/"><span>AP</span>Study.net</a>
+        <a class="brand" href="https://apstudy.net/"><span>AP</span>Study.site</a>
         <nav class="site-nav-links" aria-label="Main navigation">
             <a href="https://apstudy.net/">Home</a>
             <a href="https://apstudy.net/ap/">AP Tests</a>
             <a href="https://apstudy.net/ap-downloads/">AP Downloads</a>
             <a href="#about-us">About Us</a>
-            <a href="#feedback">Feedback</a>
             <a class="signup-link" href="https://www.apstudy.net/user/signup.php">Signup</a>
         </nav>
     </div>
@@ -1009,12 +729,12 @@
             </div>
 
             <aside class="hero-card">
-                <strong>A learning process built around improvement</strong>
+                <strong>Built and maintained as a real deployed product</strong>
                 <ul>
+                    <li>41,102 registered users</li>
+                    <li>94,000+ site visits</li>
                     <li>Practice by subject and topic</li>
-                    <li>Review recurring mistakes</li>
-                    <li>Use spaced review and reminders</li>
-                    <li>Skip material that has already been mastered</li>
+                    <li>Review recurring mistakes with spaced review</li>
                 </ul>
             </aside>
         </div>
@@ -1150,6 +870,12 @@
                             own learning experience and his work with SAT students.
                         </p>
                         <p>
+                            Yongyan designed, developed, deployed, and continues to maintain
+                            APStudy using Python and Django. His engineering work includes
+                            backend development, authentication, request logging, mistake
+                            tracking, rate limiting, deployment, and production troubleshooting.
+                        </p>
+                        <p>
                             He found that completing more questions was not always
                             enough. Meaningful improvement often came from studying
                             incorrect answers, identifying repeated patterns, and
@@ -1172,10 +898,10 @@
                             results into personalized and actionable feedback.
                         </p>
                         <div class="tags">
-                            <span>Mistake-Based Learning</span>
-                            <span>Spaced Review</span>
-                            <span>Personalized Practice</span>
-                            <span>SAT Tutoring</span>
+                            <span>Python / Django</span>
+                            <span>Backend Engineering</span>
+                            <span>Authentication & Logging</span>
+                            <span>Production Maintenance</span>
                         </div>
                     </div>
                 </article>
@@ -1213,109 +939,6 @@
                     </div>
                 </article>
             </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <div class="center-heading">
-                <p class="eyebrow">Student Feedback</p>
-                <h2>What Students Say</h2>
-                <p>Demo testimonials are shown below and should be replaced with verified student feedback before publication.</p>
-            </div>
-
-            <div class="testimonial-grid">
-                <article class="testimonial-card">
-                    <div class="testimonial-label">STUDENT FEEDBACK</div>
-                    <blockquote><strong>“The weak-topic analysis helped me understand what I actually needed to practice instead of choosing random questions.”</strong></blockquote>
-                    <div class="testimonial-user"><strong>SAT Student</strong><span>Demo testimonial</span></div>
-                </article>
-                <article class="testimonial-card">
-                    <div class="testimonial-label">STUDENT FEEDBACK</div>
-                    <blockquote><strong>“The incorrect-question notebook made it much easier to review my mistakes and notice the types of questions I kept missing.”</strong></blockquote>
-                    <div class="testimonial-user"><strong>High School Student</strong><span>Demo testimonial</span></div>
-                </article>
-                <article class="testimonial-card">
-                    <div class="testimonial-label">STUDENT FEEDBACK</div>
-                    <blockquote><strong>“APStudy helped me study more efficiently because I knew exactly what I should review next.”</strong></blockquote>
-                    <div class="testimonial-user"><strong>AP & SAT Learner</strong><span>Demo testimonial</span></div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="feedback-section" id="feedback">
-        <div class="container feedback-layout">
-            <div class="feedback-copy">
-                <p class="eyebrow">Share Your Experience</p>
-                <h2>Help Us Improve APStudy</h2>
-                <p>
-                    Use this demonstration form to show how students could submit
-                    feedback about the platform. In this demo, submissions are not
-                    stored or sent anywhere.
-                </p>
-                <div class="feedback-note">
-                    <strong>Demo behavior</strong>
-                    <p>The form validates input and displays a success message, but no information is saved.</p>
-                </div>
-            </div>
-
-            <form class="feedback-form" id="feedback-form">
-                <div class="form-row">
-                    <div class="field">
-                        <label for="name">Name or display name</label>
-                        <input id="name" name="display_name" type="text" maxlength="60" placeholder="Anonymous Student">
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" maxlength="254" placeholder="student@example.com">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="field">
-                        <label for="user-type">I am a</label>
-                        <select id="user-type" name="user_type" required>
-                            <option value="">Select one</option>
-                            <option>SAT Student</option>
-                            <option>AP Student</option>
-                            <option>Parent</option>
-                            <option>Teacher or Tutor</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="subject-used">Subject or resource used</label>
-                        <input id="subject-used" name="subject_used" type="text" maxlength="100" placeholder="SAT Math, AP Biology...">
-                    </div>
-                </div>
-
-                <fieldset class="rating">
-                    <legend>Overall experience</legend>
-                    <div class="rating-options">
-                        <input type="radio" id="r5" name="rating" value="5" required><label for="r5">5<span>Excellent</span></label>
-                        <input type="radio" id="r4" name="rating" value="4"><label for="r4">4<span>Good</span></label>
-                        <input type="radio" id="r3" name="rating" value="3"><label for="r3">3<span>Average</span></label>
-                        <input type="radio" id="r2" name="rating" value="2"><label for="r2">2<span>Needs work</span></label>
-                        <input type="radio" id="r1" name="rating" value="1"><label for="r1">1<span>Poor</span></label>
-                    </div>
-                </fieldset>
-
-                <div class="field">
-                    <label for="message">Your feedback</label>
-                    <textarea id="message" name="message" minlength="15" maxlength="1200" required placeholder="Tell us how APStudy helped you, what you found useful, or what we should improve."></textarea>
-                    <div class="character-count"><span id="character-number">0</span> / 1200 characters</div>
-                </div>
-
-                <label class="consent">
-                    <input type="checkbox" name="publication_consent">
-                    <span>I give APStudy permission to publish this feedback anonymously or using the display name I entered.</span>
-                </label>
-
-                <button class="submit-button" id="submit-button" type="submit">Submit Feedback</button>
-                <p class="status" id="status" role="status" aria-live="polite"></p>
-                <p class="demo-notice">Demo only: submitted feedback will not be stored.</p>
-            </form>
         </div>
     </section>
 </main>
@@ -1435,41 +1058,6 @@
         });
 
         noResults.hidden = visibleCount !== 0;
-    });
-
-    const form = document.getElementById("feedback-form");
-    const message = document.getElementById("message");
-    const characterNumber = document.getElementById("character-number");
-    const submitButton = document.getElementById("submit-button");
-    const status = document.getElementById("status");
-
-    message.addEventListener("input", function () {
-        characterNumber.textContent = String(message.value.length);
-    });
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
-        submitButton.disabled = true;
-
-        submitButton.classList.add("is-submitting");
-        submitButton.textContent = "Submitting...";
-        status.textContent = "";
-        status.className = "status";
-
-        window.setTimeout(function () {
-            status.textContent = "Thank you! This is a demonstration, so your feedback was not saved.";
-            status.classList.add("success");
-            form.reset();
-            characterNumber.textContent = "0";
-            submitButton.disabled = false;
-            submitButton.textContent = "Submit Feedback";
-        }, 700);
     });
 </script>
 
