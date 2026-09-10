@@ -1,3 +1,5 @@
-# apstudy-site
+# APStudy.site
 
-[Visit APStudy.site](https://apstudy.site)
+About and portfolio site for APStudy.
+
+**Website:** [apstudy.site](https://apstudy.site)
